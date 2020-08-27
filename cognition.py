@@ -35,7 +35,9 @@ class Sylar(object):
 
     def is_alive(self):
         if (self.thirst >= 100 or self.hunger >= 100
-            or self.health <= 0):
+            or self.health <= 0 or
+            (self.happiness <= 0 and self.stress >= 100)
+            ):
             return False
         return True
 
@@ -114,4 +116,3 @@ class LifeRunner(object):
 if __name__ == "__main__":
     bro = Sylar()
     bro.life.start()
-
