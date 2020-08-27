@@ -35,9 +35,7 @@ class Sylar(object):
 
     def is_alive(self):
         if (self.thirst >= 100 or self.hunger >= 100
-            or self.health <= 0 or
-            (self.happiness <= 0 and self.stress >= 100)
-            ):
+            or self.health <= 0):
             return False
         return True
 
