@@ -51,6 +51,10 @@ class Sylar(object):
         self.fix_value_ranges()
         self.happiness += random.randint(-10, 10)
         self.stress += random.randint(-10, 10)
+        self.age_hours += 1
+        self.thirst += 1
+        self.hunger += 0.1
+        self.health -= 0.01
         
     def _process_thirst(self):
         self.fix_value_ranges()
@@ -97,10 +101,6 @@ class LifeRunner(object):
     def start(self):
         while self.person.is_alive():
             self.person.live()
-            self.person.age_hours += 1
-            self.person.thirst += 1
-            self.person.hunger += 0.1
-            self.person.health -= 0.01
             number_of_years = self.person.age_hours / (24 * 365)
             if self.person.age_hours % (24 * 365) == 0:
                 print(self.person.__dict__)
